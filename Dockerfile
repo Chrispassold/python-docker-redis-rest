@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 
 WORKDIR /code
 
-COPY  /web .
+COPY  . .
 
 ENTRYPOINT [ "python", "-m", "flask", "run" ]

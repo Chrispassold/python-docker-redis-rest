@@ -1,7 +1,8 @@
 #https://docs.docker.com/compose/gettingstarted/
+
 version: '3'
 services:
-  web:
+  rest:
     build: .
     ports:
       - "5000:5000"
@@ -11,3 +12,9 @@ services:
       FLASK_ENV: development
   redis:
     image: "redis:alpine"
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - 6379:6379
