@@ -5,13 +5,13 @@ services:
   rest:
     build: .
     ports:
-      - "5000:5000"
+      - 5000:5000
     volumes:
       - .:/code
     environment:
       FLASK_ENV: development
   redis:
-    image: "redis:alpine"
+    image: redis:alpine
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
